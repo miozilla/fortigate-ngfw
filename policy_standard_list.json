@@ -1,0 +1,54 @@
+[
+  {
+    "Name": "mior-fortigate-outbound",
+    "Source": "all",
+    "Destination": "all",
+    "Schedule": "always",
+    "Service": "ALL",
+    "Action": "ACCEPT",
+    "NAT": "Enabled",
+    "Security Profiles": "default certificate-inspection",
+    "Log": "All",
+    "Bytes": "66.94 MB",
+    "Type": "Standard"
+  },
+  {
+    "Name": "mior-inbound-fw-policy",
+    "Source": "all",
+    "Destination": "Mior-ELB-VIP",
+    "Schedule": "always",
+    "Service": "HTTP",
+    "Action": "ACCEPT",
+    "NAT": "Disabled",
+    "Security Profiles": "default certificate-inspection",
+    "Log": "All",
+    "Bytes": "104.03 kB",
+    "Type": "Standard"
+  },
+  {
+    "Name": "mior-eastwest-fbcon-fwplc",
+    "Source": "gcp-frontend",
+    "Destination": "gcp-backend",
+    "Schedule": "always",
+    "Service": "HTTP",
+    "Action": "ACCEPT",
+    "NAT": "Disabled",
+    "Security Profiles": "default default certificate-inspection",
+    "Log": "All",
+    "Bytes": "123.10 kB",
+    "Type": "Standard"
+  },
+  {
+    "Name": "Implicit Deny",
+    "Source": "all",
+    "Destination": "all",
+    "Schedule": "always",
+    "Service": "ALL",
+    "Action": "DENY",
+    "NAT": "",
+    "Security Profiles": "",
+    "Log": "Disabled",
+    "Bytes": "17.32 kB",
+    "Type": ""
+  }
+]
